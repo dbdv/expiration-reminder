@@ -84,7 +84,7 @@ function Buttons({
           <button className="button new-btn" onClick={toggleAdding}>
             Nuevo
           </button>
-          <button className="button check-btn" onClick={checkExpirations}>Revisar</button>
+          {/* <button className="button check-btn" onClick={checkExpirations}>Revisar</button> */}
         </div>
       )}
     </div>

@@ -28,7 +28,7 @@ function App() {
   const [product, setProduct] = useState(emptyParams);
   const [foundProducts, setFoundProducts] = useState([]);
 
-  useEffect(() => {
+  /* useEffect(() => {
     if (productsOBJ !== {}) {
       const update = [];
       for (let p in productsOBJ) {
@@ -37,7 +37,7 @@ function App() {
       setProducts(update);
     }
   }, [productsOBJ]);
-
+ */
   useEffect(() => {
     const update = [];
     if (productsOBJ !== {}) {
@@ -60,6 +60,11 @@ function App() {
       setFoundProducts(foundP);
     }
   }, [keyword, products]);
+
+  useEffect(() => {
+    if (products.length !== 0 && searching) checkExpirations(foundProducts);
+    else if(products.length !== 0 && !searching) checkExpirations(products);
+  }, [products, foundProducts, searching]);
 
   function toggleAdding() {
     setAdding((adding) => !adding);
@@ -122,13 +127,16 @@ function App() {
     });
   }
 
-  function checkExpirations() {
-    products.forEach((p) => {
-      const pDate = new moment(`${p.year}-${p.month}-${p.day}`);
+  function checkExpirations(array) {
+
+    array.forEach((p) => {
+      const pDate = new moment(`${p.day}-${p.month}-${p.year}`, "DD MM YYYY");
       /* console.log(pDate.diff(moment(), "days")); */
-      console.log(p.interval);
-      if (pDate.diff(moment(), "days") < p.interval) {
-        document.querySelector(`.${p.id}`).classList.add("inTime");
+      /* console.log(moment().get('year'), moment().get('month'), moment().get('date'));
+      console.log(pDate.diff(moment(), "days")) */
+      const element = document.querySelector(`.${p.id}`);
+      if (pDate.diff(moment(), "days") < p.interval && element !== null) {
+        element.classList.add("inTime");
       }
     });
   }
@@ -142,7 +150,7 @@ function App() {
         handleChangeProduct={handleChangeProduct}
         addProduct={addProduct}
         product={product}
-        checkExpirations={checkExpirations}
+        /* checkExpirations={checkExpirations(searching ? foundProducts : products)} */
       />
       <SearchBar handleChangeKeyword={handleChangeKeyword} />
       {searching ? (
