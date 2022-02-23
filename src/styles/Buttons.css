@@ -1,0 +1,65 @@
+.initial-buttons {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.button {
+    width: 50%;
+    border: none;
+    font-size: 20px;
+    padding: 5px;
+}
+
+.new-btn {
+    background: lightgreen;
+}
+
+.check-btn {
+    background: cornflowerblue;
+}
+
+.add-btn {
+    background: lightgreen;
+}
+
+.cancel-btn {
+    background: tomato;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+}
+
+.intervalContainer {
+    display: flex;
+    justify-content: center;
+    font-size: 17px;
+}
+
+.intervalContainer > input {
+    width: 20px;
+    height: 20px;
+    font-size: 16px;
+    text-align: center;
+    margin: 0 4px;
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+.date-container {
+    display: flex;
+}
+
+.input {
+    padding: 2px;
+    font-size: 15px;
+}
+
+.input-date {
+    width: 33%;
+    font-size: 15px;
+    padding: 2px;
+}
