@@ -1,38 +1,54 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;500&display=swap");
 
 .prod-card {
-    width: 90%;
-    display: flex;
-    font-family: "Montserrat";
-    justify-content: space-around;
-    align-items: center;
-    border-bottom: 1px solid black;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  font-family: "Montserrat";
+  background: white /* #455A78 */;
+  color: #531314;
+
+  border-radius: 5px;
+  margin: 3px;
 }
+
+.interval {
+  display: flex;
+  align-items: center;
+}
+
 .name {
-    font-size: 40px;
-    width: 100%;
-    padding: 5px;
+  font-size: 40px;
+  width: 100%;
+  padding: 5px;
 }
 
-.description {
-    width: 100%;
-    padding: 5px;
-}
-
-.date {
-    font-size: 20px;
-    font-weight: bold;
+.date,
+.setTo {
+  font-size: 17px;
+  padding: 5px;
 }
 
 .delete-button {
-    padding: 5px;
-    font-size: 15px;
-    height: 30px;
-    background: tomato;
-    border: none;
-    font-weight: bold;
+  padding: 5px;
+  margin: 5px;
+  font-size: 20px;
+  width: 110px;
+  background: #d15c5e;
+  border: none;
+  border-radius: 5px;
+  align-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.icon {
+    font-size: 40px;
 }
 
 .inTime {
-    border: 5px red solid;
+  width: 89.5%;
+  color: #d15c5e;
+  border: 2px #d15c5e solid;
 }

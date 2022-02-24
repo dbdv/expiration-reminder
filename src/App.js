@@ -1,5 +1,4 @@
 import "./App.css";
-import Header from "./components/Header";
 import Buttons from "./components/Buttons";
 import SearchBar from "./components/SearchBar";
 import ProductsBox from "./components/ProductsBox";
@@ -63,7 +62,7 @@ function App() {
 
   useEffect(() => {
     if (products.length !== 0 && searching) checkExpirations(foundProducts);
-    else if(products.length !== 0 && !searching) checkExpirations(products);
+    else if (products.length !== 0 && !searching) checkExpirations(products);
   }, [products, foundProducts, searching]);
 
   function toggleAdding() {
@@ -128,7 +127,6 @@ function App() {
   }
 
   function checkExpirations(array) {
-
     array.forEach((p) => {
       const pDate = new moment(`${p.day}-${p.month}-${p.year}`, "DD MM YYYY");
       /* console.log(pDate.diff(moment(), "days")); */
@@ -143,16 +141,19 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
-      <Buttons
-        adding={adding}
-        toggleAdding={toggleAdding}
-        handleChangeProduct={handleChangeProduct}
-        addProduct={addProduct}
-        product={product}
-        /* checkExpirations={checkExpirations(searching ? foundProducts : products)} */
-      />
-      <SearchBar handleChangeKeyword={handleChangeKeyword} />
+      <div className="externalDiv">
+        <div className="top">
+          <SearchBar handleChangeKeyword={handleChangeKeyword} />
+          <Buttons
+            adding={adding}
+            toggleAdding={toggleAdding}
+            handleChangeProduct={handleChangeProduct}
+            addProduct={addProduct}
+            product={product}
+          />
+        </div>
+      </div>
+
       {searching ? (
         <ProductsBox
           removeProduct={removeProduct}

@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
 import "../styles/Buttons.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus, faXmark } from "@fortawesome/free-solid-svg-icons";
 
 function Buttons({
   adding,
@@ -7,7 +8,7 @@ function Buttons({
   handleChangeProduct,
   product,
   addProduct,
-  checkExpirations
+  checkExpirations,
 }) {
   function handleSubmit(event) {
     event.preventDefault();
@@ -21,29 +22,22 @@ function Buttons({
             type="text"
             name="name"
             className="input"
-            placeholder="Nombre"
+            placeholder="Producto"
             onChange={handleChangeProduct}
             value={product.name}
-          />
-          <input
-            type="text"
-            name="description"
-            className="input"
-            placeholder="Descripcion"
-            onChange={handleChangeProduct}
-            value={product.description}
           />
           <div className="intervalContainer">
             <p>Avisarme</p>
             <input
               type="text"
-              /* value={product.interval} */
+              value={product.interval}
               onChange={handleChangeProduct}
               name="interval"
             />
             <p> días antes.</p>
           </div>
           <div className="date-container">
+            <span>Vence: </span>
             <input
               type="text"
               name="day"
@@ -72,10 +66,10 @@ function Buttons({
 
           <div>
             <button className="button add-btn" onClick={addProduct}>
-              Añadir
+              Añadir {<FontAwesomeIcon icon={faPlus}/>}
             </button>
             <button className="button cancel-btn" onClick={toggleAdding}>
-              Cancelar
+              Cancelar {<FontAwesomeIcon icon={faXmark}/>}
             </button>
           </div>
         </form>

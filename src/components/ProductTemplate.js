@@ -1,4 +1,6 @@
 import "../styles/ProductTemplate.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 function ProductTemplate({
   name,
@@ -14,16 +16,18 @@ function ProductTemplate({
     <div className={`prod-card ${id}`}>
       <div className="left-side">
         <h1 className="name">{name}</h1>
-        <p className="description">{description}</p>
-        <span className="date">{`Vencimiento: ${day}/ ${month}/ ${year}`}</span>
-        <p>Configurado para {interval} dias antes.</p>
+        <div className="interval">
+          <span className="date">{`Vence: ${day}-${month}-${year}`}</span>
+          <p className="setTo">avisar {interval} dias antes.</p>
+        </div>
       </div>
+      
       <button
         className="delete-button"
         id={id}
         onClick={(e) => removeProduct(e.target.id)}
       >
-        Eliminar
+        Eliminar{<FontAwesomeIcon icon={faXmark}/>}
       </button>
     </div>
   );
